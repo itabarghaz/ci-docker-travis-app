@@ -1,16 +1,17 @@
 sudo: required
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 services:
-  - docker
+- docker
+branches:
+  only:
+    - master
 env:
   global:
-    - secure: "encrypted-dockerhub-username-1234"
-    - secure: "encrypted-dockerhub-password-1234"
-    - SERVICE_DIR=config-server
+  - secure: cPn/jLq5bYQ5qEJA+jAtYzZVWfRHADREjhvadNDT5FKeE1BE8gk8r+DTI1GsCKqJZE9N0AUFP4m8Ekoz+aONKhhGtHwlbz61lN1WtVznfSB6zH+aBQDYcMUofjnNoOkDTHWkuCIT8T6mNHFNDgsXoaGidGmgHtGqvxwcF2WPcIvrNvg/I2AAH6yOXmtcaITmbCWOjBgLxmh2PdYWSumFozMdJ+EaN8V5hEwfdoUHN4LsymEtKuCHfG5oOLsyNbpdSTZriRKumbMOXZ9ZkkllAxHobqqAZ5UNCDSDcp9YvyM33RnmFNMLpBXDhm3hr87gtqdzE9/TE/Qo2kRilO2xxou1B3mBl1ZjB+gD6oY3qmOTNaLNAmjZdsjrvcwsILvAb+c+DGcgu7jMgNohX+JgCkf1hN1/0zjknid+bO7pXznkS/VSWCSaUzLS+NzBGY5znxe593ZQToZfSU0iR725qTRIiAy+LqHYBbCiEbi7yrzRTbJe+GJdxWLPlhXBkoyapr0jbhn/WLevTXXlApZwyLlvoKM6Z02s6BEjlYKPyFMEA1cqQWtz6shBqA3MsMdOXxayQhfNIlPlWQ9Ua+0ncaOzkEAMUBN4SUfKOet3qmHQeMzSWDM3lUNguF1nf76DFTTGLGIy/LvqEbowGGDg/5c2J1VdY+pTQNyoSDJEn0E=
+  - secure: FTbkEXZ1lxLsFXUNlf/hq0wyM4e9O/jzRsf8XjLXVcADkUHMxMtrDhS1tG2ic+1KiSJvfcj9MmUDyPO6WyXrpGjA/kIQ3f3C/crq+Xc9diH9Mh8dhX4uyT/a4jM6m9VRkrjwrNOu/aF/LRd02auV5LOLz4MXvjb5J4zfdtWEbQSNXw2zXG/iv7DmUeQ78zn4p55XQR1BYDzOb8zkeKYBbN4tdBFK1uYdA3398FEh/A7hr1TrCsAFoumfLQi7sbdwqn3JYE8ZTbTuILVJs7EkMIcoRYNINor4Zk2T+LP1GUOUiYjBsg5SETWTHgCoz8bFcAXWwz7RqhxM2GXTz0RoMafXXeF4ANklxSgr7UOdcmHQ2QHHJ3yoLtiXUMQ2NfZ7DTB0MZjDttxKkmUe7iQdNk69FoHqlYSNEGQZXd8LBpB+co9jrGwDPHA2Hyi9+/CvnrVxP+aSGPmC57w+o7xg2JkASJozzU7Z4gec/eZ28WAyZrjiP6miqeQh1xk4xRPsD0JGWJZ5/ww3EdFBvo+DhQUiD118AJNUC3EZgbK+W6UAWsTPuqL6kWDHd8PSnd2+CvR0vGgAPoFrXhIjaDL9Ljx+kTfU61bbAzZNwU8r0AC9Ubc7Hp+2u5VGKS0LHtrALfg0SO0dX+MDRPnpwbaw+u+3NqEUHdRP4qX2ujXYVJA=
 before_install:
   - chmod +x ./.travis/pushimage.sh
-
 after_success:
   - bash ../.travis/pushimage.sh
