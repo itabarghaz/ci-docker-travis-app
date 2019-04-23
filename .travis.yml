@@ -1,0 +1,16 @@
+sudo: required
+language: java
+jdk:
+  - oraclejdk8
+services:
+  - docker
+env:
+  global:
+    - secure: "encrypted-dockerhub-username-1234"
+    - secure: "encrypted-dockerhub-password-1234"
+    - SERVICE_DIR=config-server
+before_install:
+  - chmod +x ./.travis/pushimage.sh
+
+after_success:
+  - bash ../.travis/pushimage.sh
