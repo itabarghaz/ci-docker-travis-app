@@ -14,4 +14,4 @@ env:
 before_install:
   - chmod +x ./.travis/pushimage.sh
 after_success:
-  - bash ../.travis/pushimage.sh
+  - bash ../.travis/pushimage.sh config-server
